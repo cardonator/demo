@@ -1,0 +1,21 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Demo Integration Test Suite" verbose="1">
+
+    <test name="Demo Integration Tests" parallel="methods" thread-count="4">
+        <groups>
+            <run>
+                <!-- to exclude a test from Acceptance test run, add test to one of these groups -->
+                <exclude name="fragile"/>
+                <exclude name="load"/>
+
+                <!-- This testuite will only run tests that belong to the 'acceptance' group -->
+                <include name="acceptance"/>
+            </run>
+        </groups>
+
+        <classes>
+            <class name="com.example.demo.integration.suite.EndpointsTest"/>
+            <class name="com.example.demo.integration.suite.EndpointsErrorTest"/>
+        </classes>
+    </test>
+</suite>
