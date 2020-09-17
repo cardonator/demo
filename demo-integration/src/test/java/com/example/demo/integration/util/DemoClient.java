@@ -79,4 +79,8 @@ public class DemoClient {
 
         return response;
     }
+
+    public Response orgIds() {
+        return get("/orgids");
+    }
 }
