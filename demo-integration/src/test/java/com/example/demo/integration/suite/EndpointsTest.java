@@ -1,5 +1,6 @@
 package com.example.demo.integration.suite;
 
+import com.example.demo.integration.model.OrganizationIdList;
 import com.example.demo.integration.util.DemoClient;
 import org.testng.Assert;
 import org.testng.ITestResult;
@@ -43,5 +44,13 @@ public class EndpointsTest {
     @Test(groups = "fragile")
     public void testGetHeartbeatSkipped() {
         System.out.print("Executed a test that should be skipped");
+    }
+
+    @Test
+    public void testGetOrgIds() {
+        Response response  = demoClient.orgIds();
+
+        OrganizationIdList orgList = response.readEntity(OrganizationIdList.class);
+        Assert.assertNotNull(orgList);
     }
 }
